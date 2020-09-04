@@ -35,17 +35,30 @@
       console.log(cars);
       console.log(cars[1]);
 
+      function myCar(cars) {
+        return cars.type === "Mercedes";
+      }
+      console.log(cars.find(myCar));
+
       if (cars.some((cars) => cars.type === "BMW")) {
         alert("Object found inside the array.");
       } else {
         alert("Object not found.");
       }
 
-      var carType = cars.map((cars) => cars.type);
-      console.log(carType);
+      function filterMyArr(myArr, condition) {
+        return myArr.map((cars) => cars[condition]);
+      }
 
-      var carYear = cars.map((cars) => cars.year);
-      console.log(carYear);
+      console.log("Types- ", filterMyArr(cars, "type"));
+
+      console.log("Year- ", filterMyArr(cars, "year"));
+
+      //   var carType = cars.map((cars) => cars.type);
+      //   console.log(carType);
+
+      //   var carYear = cars.map((cars) => cars.year);
+      //   console.log(carYear);
 
       var index01 = cars.findIndex((x) => x.type === "Mercedes");
       var index02 = cars.findIndex((x) => x.year === 2015);

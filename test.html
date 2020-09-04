@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Learning for project</h2>
+    <script>
+      var student = [
+        { name: "Thae Zarli", year: 1998, mark: 90 },
+        { name: "Zon myat", year: 1997, mark: 99 },
+        { name: "Su Myat", year: 1998, mark: 95 },
+      ];
+      var studentCopy = student.map(addFullName);
+      function findByName(student) {
+        return student.name === "Thae Zarli";
+      }
+      console.log(student.find(findByName));
+
+      function addFullName(student) {
+        let firstname = student.name;
+        let secondname = "Noe Oo";
+        if (firstname === "Su Myat") {
+          var fullname = firstname + " " + secondname;
+        } else {
+          fullname = firstname;
+        }
+        return fullname;
+      }
+      console.log(studentCopy);
+
+      var myArray = Object.values(student);
+
+      function getTotalMark(myArray) {
+        let totalMark = 0;
+        let itemsFound = 0;
+        const len = myArray.length;
+        let item = null;
+        for (let i = 0; i < len; i++) {
+          item = myArray[i];
+          if (item.mark) {
+            totalMark = item.mark + totalMark;
+            itemsFound = itemsFound + 1;
+          }
+        }
+        return totalMark;
+      }
+      console.log(getTotalMark(myArray));
+    </script>
+  </body>
+</html>
