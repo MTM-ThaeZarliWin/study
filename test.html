@@ -32,7 +32,9 @@
       addFullName("Su Myat", "Noe Oo");
 
       function getTotalMark() {
-        var sum = student.reduce((student, { mark }) => student + mark, 0);
+        var sum = student.reduce((total, student) => {
+          return total + student.mark;
+        }, 0);
         console.log(sum);
       }
       getTotalMark();
