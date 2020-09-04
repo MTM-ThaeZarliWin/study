@@ -13,41 +13,29 @@
         { name: "Zon myat", year: 1997, mark: 99 },
         { name: "Su Myat", year: 1998, mark: 95 },
       ];
-      var studentCopy = student.map(addFullName);
-      function findByName(student) {
-        return student.name === "Thae Zarli";
-      }
-      console.log(student.find(findByName));
 
-      function addFullName(student) {
-        let firstname = student.name;
-        let secondname = "Noe Oo";
-        if (firstname === "Su Myat") {
-          var fullname = firstname + " " + secondname;
-        } else {
-          fullname = firstname;
-        }
-        return fullname;
+      function findByName(name) {
+        return student.find((student) => student.name);
       }
-      console.log(studentCopy);
+      console.log(findByName());
+      findByName("Thae Zarli");
 
-      var myArray = Object.values(student);
-
-      function getTotalMark(myArray) {
-        let totalMark = 0;
-        let itemsFound = 0;
-        const len = myArray.length;
-        let item = null;
-        for (let i = 0; i < len; i++) {
-          item = myArray[i];
-          if (item.mark) {
-            totalMark = item.mark + totalMark;
-            itemsFound = itemsFound + 1;
-          }
-        }
-        return totalMark;
+      function addFullName(firstname, secondname) {
+        var index = student.findIndex((student) => {
+          return student.name == firstname;
+        });
+        student[index].name = student[index].name + " " + secondname;
+        console.log(student);
       }
-      console.log(getTotalMark(myArray));
+      addFullName("Thae Zarli", "Win");
+      addFullName("Zon myat", "Noe");
+      addFullName("Su Myat", "Noe Oo");
+
+      function getTotalMark() {
+        var sum = student.reduce((student, { mark }) => student + mark, 0);
+        console.log(sum);
+      }
+      getTotalMark();
     </script>
   </body>
 </html>
