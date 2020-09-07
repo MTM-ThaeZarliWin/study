@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn for Project</title>
+  </head>
+  <body>
+    <h2>Learning for project</h2>
+    <script>
+      var student = [
+        { name: "Thae Zarli", year: 1998, mark: 90 },
+        { name: "Zon myat", year: 1997, mark: 99 },
+        { name: "Su Myat", year: 1998, mark: 95 },
+      ];
+
+      function checkStudent(stdName) {
+        var name = student.some((student) => {
+          return student.name == stdName;
+        });
+        console.log(name);
+      }
+      checkStudent("Thae Zarli Win");
+      checkStudent("Zon myat");
+
+      function averageMarkOfStudent() {
+        var averageMark =
+          student.reduce((total, student) => {
+            return total + student.mark;
+          }, 0) / student.length;
+        console.log("Average mark of all students is " + averageMark);
+      }
+      averageMarkOfStudent();
+
+      function checkStudentBirthYear() {
+        var year = student.every((student) => {
+          return student.year > 1996;
+        });
+        console.log(year);
+      }
+      checkStudentBirthYear();
+    </script>
+  </body>
+</html>
